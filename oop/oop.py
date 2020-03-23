@@ -1,5 +1,8 @@
 import turtle
 import math
+
+turtle.shape('turtle')
+
 class figure:
     def parametrs_of_figure(self):
         print ("у каждой фигуры есть такие параметры, как периметр и площадь")
@@ -23,8 +26,6 @@ class circle(figure):
         x_center = int(self.x_center)
         y_center = int(self.y_center)
         lenght_x = int(self.lenght_x)
-        turtle.shape('turtle')
-        turtle.home()
         turtle.penup()
         turtle.setpos (x_center, y_center)
         turtle.pendown()
@@ -52,17 +53,17 @@ class rectangle(figure):
         y_center = int(self.y_center)
         lenght_x = int(self.lenght_x)
         lenght_y = int(self.lenght_y)
-        turtle.shape('turtle')
         turtle.home()
+        turtle.penup()
         turtle.setpos (x_center, y_center)
         turtle.pendown( )
         turtle.pencolor(color)
         turtle.forward(lenght_x)
-        turtle.right(90)
+        turtle.left(90)
         turtle.forward(lenght_y)
-        turtle.right(90)
+        turtle.left(90)
         turtle.forward(lenght_x)
-        turtle.right(90)
+        turtle.left(90)
         turtle.forward(lenght_y)
         turtle.penup()
 
@@ -86,7 +87,6 @@ class triangle(figure):
         y_center = int(self.y_center)
         lenght_x = int(self.lenght_x)
         lenght_y = int(self.lenght_y)
-        turtle.shape('turtle')
         turtle.home()
         turtle.setpos (x_center, y_center)
         turtle.pendown( )
@@ -94,16 +94,54 @@ class triangle(figure):
         turtle.forward(lenght_x)
         turtle.setpos (x_center + lenght_x / 2, y_center + lenght_y)
         turtle.setpos (x_center, y_center)
-        turtle.mainloop()
+        #turtle.mainloop()
 
-circle_first = circle(50, 5, 35)
-print (circle_first.parametrs_of_figure())
-circle_first.draw_figure('red')
+# circle_first = circle(50, 50, 35)
+# print (circle_first.parametrs_of_figure())
+# circle_first.draw_figure('red')
 
-rectangle_first = rectangle(100,200,100,80)
-print (rectangle_first.parametrs_of_figure())
-rectangle_first.draw_figure('yellow')
+# rectangle_first = rectangle(50,50,100,80)
+# print (rectangle_first.parametrs_of_figure())
+# rectangle_first.draw_figure('yellow')
 
-triangle_first = triangle(-100, 1, 50, 60)
-print (triangle_first.parametrs_of_figure())
-triangle_first.draw_figure('blue')
+# triangle_first = triangle(-100, 1, 50, 60)
+# print (triangle_first.parametrs_of_figure())
+# triangle_first.draw_figure('blue')
+
+def task_1(x_start, y_start , lenght_of_side, step):
+    turtle.reset() 
+    turtle.pendown()
+    for elem in range(1, round(lenght_of_side/2/step)+1):
+        rectangular_for_drawing = rectangle(x_start, y_start, lenght_of_side, lenght_of_side)
+        rectangular_for_drawing.draw_figure('blue')
+        x_start = x_start + step
+        y_start = y_start + step
+        lenght_of_side = lenght_of_side - 2 * step
+
+task_1(-150, -150, 300, 20)
+
+def task_2(number_of_angle, Radius):
+    turtle.reset() 
+    turtle.pendown()
+    for elem in range(1, number_of_angle + 1):
+        circle_for_drawing = circle(0, 0, Radius)
+        circle_for_drawing.draw_figure('red')
+        turtle.right(360 / number_of_angle)
+
+task_2(6, 50)
+
+def task_3(n,R,l):
+    turtle.reset() 
+    turtle.pendown()
+    turtle.left(90)
+    for elem in range(1, n + 1):
+        circle_for_drawing = circle(0, 0, R)
+        circle_for_drawing.draw_figure('red')
+        turtle.right(180)
+        circle_for_drawing.draw_figure('red')
+        turtle.right(180)
+        R = R + l
+    turtle.speed(10)
+    turtle.mainloop()
+
+task_3(10, 50, 10)
