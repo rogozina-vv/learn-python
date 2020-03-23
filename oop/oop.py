@@ -96,14 +96,14 @@ class triangle(figure):
         turtle.setpos (x_center, y_center)
         turtle.mainloop()
 
-# circle_first = circle(50, 5, 35)
-# print (circle_first.parametrs_of_figure())
-# circle_first.draw_figure('red')
+circle_first = circle(50, 5, 35)
+print (circle_first.parametrs_of_figure())
+circle_first.draw_figure('red')
 
-# rectangle_first = rectangle(100,200,100,80)
-# print (rectangle_first.parametrs_of_figure())
-# rectangle_first.draw_figure('yellow')
+rectangle_first = rectangle(100,200,100,80)
+print (rectangle_first.parametrs_of_figure())
+rectangle_first.draw_figure('yellow')
 
-# triangle_first = triangle(-100, 1, 50, 60)
-# print (triangle_first.parametrs_of_figure())
-# triangle_first.draw_figure('blue')
+triangle_first = triangle(-100, 1, 50, 60)
+print (triangle_first.parametrs_of_figure())
+triangle_first.draw_figure('blue')
