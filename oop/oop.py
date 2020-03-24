@@ -96,6 +96,35 @@ class triangle(figure):
         turtle.setpos (x_center, y_center)
         #turtle.mainloop()
 
+fff = []
+def sbor_dannih():
+    n = int(input ("Я могу нарисовать столько фигур, сколько хочешь... только скажи сколько?"))
+    for i in range(1, n+1):
+        type_of_figure = int(input("1 - Круг, 2 - Прямоугольник, 3 - Треугольник. Выбирай?"))
+        if type_of_figure == 1:
+            x, y, r = (int(j) for j in input('Введи через прообел координаты начальной точки и радиус').split())
+            fff.append(circle(x, y, r))
+        elif type_of_figure == 2:
+            x, y, a, b = (int(j) for j in input('Введи через прообел координаты начальной точки, длину и ширину').split())
+            fff.append(rectangle(x, y, a, b))
+        elif type_of_figure == 3:
+            x, y, a, b = (int(j) for j in input('Введи через прообел координаты начальной точки, длину основания и высоту').split())
+            fff.append(triangle(x, y, a, b))
+        else:
+            print ("только 1, 2 или 3. Никакой тебе фигуры")
+            fff.append(0)
+    return fff, n
+
+sbor_dannih()
+print (fff)
+n = fff.__len__()
+def drawing():
+    for elem in range(1,n+1):
+        fff[elem-1].draw_figure('blue')
+    return None
+
+drawing()
+
 # circle_first = circle(50, 50, 35)
 # print (circle_first.parametrs_of_figure())
 # circle_first.draw_figure('red')
@@ -108,40 +137,40 @@ class triangle(figure):
 # print (triangle_first.parametrs_of_figure())
 # triangle_first.draw_figure('blue')
 
-def task_1(x_start, y_start , lenght_of_side, step):
-    turtle.reset() 
-    turtle.pendown()
-    for elem in range(1, round(lenght_of_side/2/step)+1):
-        rectangular_for_drawing = rectangle(x_start, y_start, lenght_of_side, lenght_of_side)
-        rectangular_for_drawing.draw_figure('blue')
-        x_start = x_start + step
-        y_start = y_start + step
-        lenght_of_side = lenght_of_side - 2 * step
+# def task_1(x_start, y_start , lenght_of_side, step):
+#     turtle.reset() 
+#     turtle.pendown()
+#     for elem in range(1, round(lenght_of_side/2/step)+1):
+#         rectangular_for_drawing = rectangle(x_start, y_start, lenght_of_side, lenght_of_side)
+#         rectangular_for_drawing.draw_figure('blue')
+#         x_start = x_start + step
+#         y_start = y_start + step
+#         lenght_of_side = lenght_of_side - 2 * step
 
-task_1(-150, -150, 300, 20)
+# task_1(-150, -150, 300, 20)
 
-def task_2(number_of_angle, Radius):
-    turtle.reset() 
-    turtle.pendown()
-    for elem in range(1, number_of_angle + 1):
-        circle_for_drawing = circle(0, 0, Radius)
-        circle_for_drawing.draw_figure('red')
-        turtle.right(360 / number_of_angle)
+# def task_2(number_of_angle, radius):
+#     turtle.reset() 
+#     turtle.pendown()
+#     for elem in range(1, number_of_angle + 1):
+#         circle_for_drawing = circle(0, 0, radius)
+#         circle_for_drawing.draw_figure('red')
+#         turtle.right(360 / number_of_angle)
 
-task_2(6, 50)
+# task_2(6, 50)
 
-def task_3(n,R,l):
-    turtle.reset() 
-    turtle.pendown()
-    turtle.left(90)
-    for elem in range(1, n + 1):
-        circle_for_drawing = circle(0, 0, R)
-        circle_for_drawing.draw_figure('red')
-        turtle.right(180)
-        circle_for_drawing.draw_figure('red')
-        turtle.right(180)
-        R = R + l
-    turtle.speed(10)
-    turtle.mainloop()
+# def task_3(number_of_angle, radius, step):
+#     turtle.reset() 
+#     turtle.pendown()
+#     turtle.left(90)
+#     for elem in range(1, number_of_angle + 1):
+#         circle_for_drawing = circle(0, 0, radius)
+#         circle_for_drawing.draw_figure('red')
+#         turtle.right(180)
+#         circle_for_drawing.draw_figure('red')
+#         turtle.right(180)
+#         radius = radius + step
+#     turtle.speed(10)
+#     turtle.mainloop()
 
-task_3(10, 50, 10)
+# task_3(10, 50, 10)
