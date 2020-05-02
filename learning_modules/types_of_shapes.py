@@ -95,4 +95,4 @@ class triangle(figure):
         turtle.forward(lenght_x)
         turtle.setpos (x_center + lenght_x / 2, y_center + lenght_y)
         turtle.setpos (x_center, y_center)
-        #turtle.mainloop()
+
